@@ -1,4 +1,15 @@
+import { hostname } from "os";
+
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        hostname: "cdn.shopify.com",
+        protocol: "https",
+      },
+    ],
+  },
+};
 
 export default nextConfig;
