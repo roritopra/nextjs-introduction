@@ -15,7 +15,7 @@ export default async function Layout({
           <Link
             key={collection.id}
             className="bg-gradientColor text-white p-2 rounded-md"
-            href={"/store/" + collection.handle + "?id=" + collection.id}
+            href={'/store/' + collection.handle}
           >
             {collection.title}
           </Link>
