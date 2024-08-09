@@ -7,7 +7,11 @@ export const getProducts = async (id?: string): Promise<ProductType[]> => {
     const response = await fetch(apiUrl, {
       headers: new Headers({
         'X-Shopify-Access-Token': env.SHOPIFY_TOKEN
-      })
+      }),
+      cache: 'no-cache',
+      next: {
+        tags: ['main-products']
+      }
     })
     const { products } = await response.json()
 
