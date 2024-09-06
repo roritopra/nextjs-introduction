@@ -1,11 +1,12 @@
 import Image from "next/image";
 import { ProductViewItemsOrder } from "./ProductViewItemsOrder";
+import { SanitizeHTML } from "app/components/shared/SanitizeHTML";
+
 interface ProductViewProps {
-  product: ProductType
+  product: ProductType;
 }
 
 export const ProductView = ({ product }: ProductViewProps) => {
-
   return (
     <main>
       <section>
@@ -21,14 +22,12 @@ export const ProductView = ({ product }: ProductViewProps) => {
       <section>
         <h1>{product.title}</h1>
         <p>{product.tags}</p>
-        <p>
+        <SanitizeHTML tag="p">
           {product.description}
-        </p>
-        <span>
-          $ {product.price}
-        </span>
+        </SanitizeHTML>
+        <span>$ {product.price}</span>
         <ProductViewItemsOrder maxQuantity={product.quantity} />
       </section>
     </main>
-  )
+  );
 };
